@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+  
+  .list {
+    display: flex;
+    gap: 0.25rem;
+    transform-style: preserve-3d;
+    list-style-type: none;
+  
+    &:hover :not(:hover) {
+      margin: 0 -20px;
+      transform: perspective(500px) rotateY(45deg) scale(0.95);
+    }
+  
+    &:hover :not(:hover)::after {
+      opacity: 0.4;
+    }
+  }
+  
+  .item {
+    position: relative;
+    width: 120px;
+    aspect-ratio: 3/4;
+    border-radius: 0.5rem;
+    background-size: cover;
+    background-position: center;
+    transition: margin 0.5s, transform 0.5s;
+  
+    &:nth-of-type(1) { background-image: url(https://static.vecteezy.com/system/resources/thumbnails/012/697/295/small_2x/3d-python-programming-language-logo-free-png.png); }
+    &:nth-of-type(2) { background-image: url(https://th.bing.com/th/id/OIP.NIXa1UnYGn_mhs3Y2bkTOgHaHa?rs=1&pid=ImgDetMain); }
+    &:nth-of-type(3) { background-image: url(https://th.bing.com/th/id/OIP.CYAMXqfgsWg3Ix91RJbbYAHaHa?rs=1&pid=ImgDetMain); }
+    &:nth-of-type(4) { background-image: url(https://th.bing.com/th/id/OIP.TLLTAo-iSH6lBiAjlTbibgHaHa?rs=1&pid=ImgDetMain); }
+    &:nth-of-type(5) { background-image: url(https://images.vexels.com/media/users/3/166470/isolated/preview/73835fa38fba6d35aff9de603dc5044a-php-programming-language-icon-by-vexels.png); }
+  
+    &:hover ~ .item {
+      transform: perspective(500px) rotateY(-45deg) scale(0.95);
+    }
+  
+    &:hover {
+      transform: perspective(500px) rotateY(0) scale(1.2);
+    }
+  
+    &::after {
+      content: '';
+      position: absolute;
+      width: inherit;
+      aspect-ratio: inherit;
+      border-radius: inherit;
+      background-color: black;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+  }
